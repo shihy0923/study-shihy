@@ -1,10 +1,14 @@
 package com.example.aop;
 
 import com.example.aop.service.ExcelServiceImpl;
+import com.example.aop.service.targetSource.Apple;
+import org.springframework.aop.TargetSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @ClassName: TestController.java
@@ -18,9 +22,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @Autowired
     ExcelServiceImpl excelService;
-    @PostMapping("/test")
-    public void test() {
+
+    @Resource
+    Apple apple;
+
+    @PostMapping("/testAop")
+    public void testAop() {
         excelService.unAopExcelImport("dddddd");
         excelService.excelImport("dddddd");
+    }
+
+    @PostMapping("/testTargetSource")
+    public void testTargetSource() throws Exception {
+        for (int i = 0; i < 10; i++) {
+            apple.eat();
+        }
     }
 }

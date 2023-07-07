@@ -21,17 +21,17 @@ import org.springframework.stereotype.Service;
 public class AspectService1 {
 
     @Pointcut("execution(* com.example.aop.service.ExcelServiceImpl.excelImport(String))")
-    public void pointCut() {
+    public void pointCut1() {
     }
 
 
-    @Before(value = "pointCut()")
+    @Before(value = "pointCut1()")
     public void checkTokenBefore(JoinPoint joinPoint) {
         joinPoint.getArgs();
         System.out.println("before执行");
     }
 
-    @After(value = "pointCut()")
+    @After(value = "pointCut1()")
     public void checkTokenAfter(JoinPoint joinPoint) {
         System.out.println("After执行");
     }

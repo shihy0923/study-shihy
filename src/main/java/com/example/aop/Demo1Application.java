@@ -1,11 +1,14 @@
 package com.example.aop;
 
+import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cglib.core.DebuggingClassWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.io.PrintWriter;
@@ -16,21 +19,22 @@ import java.sql.SQLTimeoutException;
 import java.util.logging.Logger;
 
 @SpringBootApplication
-//@EnableTransactionManagement
+@EnableTransactionManagement
+@MapperScan({"com.example.aop"})
 public class Demo1Application {
 
     public static void main(String[] args) {
-        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "E:\\shihy\\CodeOfWork\\demo1\\target\\classes\\com\\example\\demo");
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/shihy/Downloads/demo1/target/classes/com/example/demo");
         SpringApplication.run(Demo1Application.class, args);
     }
-    @Bean
+//    @Bean
     public PlatformTransactionManager txManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
-    @Bean(
-            name = {"selfDataSource"}
-    )
+//    @Bean(
+//            name = {"selfDataSource"}
+//    )
     public DataSource selfDataSource() {
         DataSource dataSource = new DataSource() {
             /**
