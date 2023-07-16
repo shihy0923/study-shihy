@@ -1,8 +1,8 @@
-package com.example.transaction.service.impl;
+package com.example.springboot.service.impl;
 
-import com.example.transaction.entity.Department;
-import com.example.transaction.mapper.DepartmentMapper;
-import com.example.transaction.service.TransactionService;
+import com.example.springboot.entity.Department;
+import com.example.springboot.mapper.DepartmentMapper;
+import com.example.springboot.service.TransactionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,13 +22,13 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     @Transactional
-    public int update() {
+    public int update(Department department) {
 
-        Department department = new Department();
-
-        department.setId("18ec781fbefd727923b0d35740b177ab");
-        department.setTel("444444");
-        department.setName("开发部2");
+//        Department department = new Department();
+//
+//        department.setId("18ec781fbefd727923b0d35740b177ab");
+//        department.setTel("444444");
+//        department.setName("开发部2");
         return departmentMapper.update(department);
     }
 }

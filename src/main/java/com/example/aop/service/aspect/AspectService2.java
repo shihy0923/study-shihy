@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @author: shihy
  * @date 2022年02月13日
  */
-@Aspect
+//@Aspect
 @Service
 @Slf4j
 public class AspectService2 {

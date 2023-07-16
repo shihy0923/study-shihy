@@ -1,6 +1,7 @@
 package com.example.aop.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
@@ -16,6 +17,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 public class ExcelServiceImpl2 {
 
 //    @Transactional(propagation= Propagation.REQUIRES_NEW)
+    @Autowired ExcelServiceImpl excelService;
     public void excelImport2()  {
         System.out.println(TransactionSynchronizationManager.getCurrentTransactionName());
         System.out.println("ddddddddd");

@@ -1,4 +1,4 @@
-package com.example.transaction.entity;
+package com.example.springboot.entity;
 
 import java.io.Serializable;
 import java.util.Date;

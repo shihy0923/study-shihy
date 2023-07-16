@@ -2,44 +2,44 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.transaction.mapper.UserMapper">
-    <resultMap id="userMap" type="com.example.transaction.entity.User">
+<mapper namespace="com.example.springboot.mapper.UserMapper">
+    <resultMap id="userMap" type="com.example.springboot.entity.User">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="age" column="age"/>
         <result property="birthday" column="birthday"/>
-        <association property="department" javaType="com.example.transaction.entity.Department">
+        <association property="department" javaType="com.example.springboot.entity.Department">
             <id property="id" column="department_id"/>
             <result property="name" column="department_name"/>
         </association>
     </resultMap>
 
-    <resultMap id="userlazy" type="com.example.transaction.entity.User">
+    <resultMap id="userlazy" type="com.example.springboot.entity.User">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="age" column="age"/>
         <result property="birthday" column="birthday"/>
-        <association property="department" javaType="com.example.transaction.entity.Department"
+        <association property="department" javaType="com.example.springboot.entity.Department"
                      select="com.linkedbear.mybatis.mapper.DepartmentMapper.findById" column="department_id"/>
     </resultMap>
 
-    <resultMap id="userWithPrefix" type="com.example.transaction.entity.User">
+    <resultMap id="userWithPrefix" type="com.example.springboot.entity.User">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="age" column="age"/>
         <result property="birthday" column="birthday"/>
-        <association property="department" javaType="com.example.transaction.entity.Department"
+        <association property="department" javaType="com.example.springboot.entity.Department"
                      resultMap="com.linkedbear.mybatis.mapper.DepartmentMapper.department" columnPrefix="department_"/>
     </resultMap>
     
-    <resultMap id="userWithDiscriminator" type="com.example.transaction.entity.User">
+    <resultMap id="userWithDiscriminator" type="com.example.springboot.entity.User">
         <discriminator column="deleted" javaType="boolean">
             <case value="false" resultMap="userlazy"/>
-            <case value="true" resultType="com.example.transaction.entity.User"/>
+            <case value="true" resultType="com.example.springboot.entity.User"/>
         </discriminator>
     </resultMap>
 
-    <select id="findAll" resultType="com.example.transaction.entity.User">
+    <select id="findAll" resultType="com.example.springboot.entity.User">
         select * from tbl_user
     </select>
 
@@ -67,12 +67,12 @@
         select * from tbl_user
     </select>
 
-    <insert id="saveUser" parameterType="com.example.transaction.entity.User">
+    <insert id="saveUser" parameterType="com.example.springboot.entity.User">
         insert into tbl_user (id, name, department_id) VALUES (#{id}, #{name}, #{department.id})
     </insert>
 
     <select id="findAllByDepartmentId" parameterType="string"
-            resultType="com.example.transaction.entity.User">
+            resultType="com.example.springboot.entity.User">
         select * from tbl_user where department_id = #{departmentId}
     </select>
 

@@ -1,7 +1,7 @@
-package com.example.transaction.mapper;
+package com.example.springboot.mapper;
 
 
-import com.example.transaction.entity.Department;
+import com.example.springboot.entity.Department;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
