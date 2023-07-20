@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cglib.core.DebuggingClassWriter;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -21,8 +22,9 @@ import java.util.logging.Logger;
 
 @SpringBootApplication
 //@EnableTransactionManagement
+@EnableAspectJAutoProxy
 @MapperScan({"com.example.aop"})
-@EnableAsync
+//@EnableAsync
 
 public class Demo1Application {
 

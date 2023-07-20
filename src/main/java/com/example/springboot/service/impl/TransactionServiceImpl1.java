@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+
 /**
  * Note:
  * Date: 2023/7/6 18:31
@@ -15,20 +17,21 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Slf4j
-public class TransactionServiceImpl implements TransactionService {
+public class TransactionServiceImpl1 implements TransactionService {
 
     @Autowired
     DepartmentMapper departmentMapper;
 
+    @Resource(name = "transactionServiceImpl2")
+    TransactionService transactionService;
+
     @Override
     @Transactional
-    public int update(Department department) {
+    public int update1(Department department) {
+        log.info("执行事务1");
 
-//        Department department = new Department();
-//
-//        department.setId("18ec781fbefd727923b0d35740b177ab");
-//        department.setTel("444444");
-//        department.setName("开发部2");
+        transactionService.update2();
+
         return departmentMapper.update(department);
     }
 }

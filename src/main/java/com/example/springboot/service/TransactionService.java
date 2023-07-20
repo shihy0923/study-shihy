@@ -9,5 +9,10 @@ import com.example.springboot.entity.Department;
  */
 public interface TransactionService {
 
-    int update(Department department);
+   default int update1(Department department){
+       return 0;
+   }
+   default   int update2(){
+       return 0;
+   }
 }
