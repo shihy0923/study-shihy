@@ -15,6 +15,7 @@ public class FaceBookAds {
     public static final APIContext context = new APIContext(ACCESS_TOKEN, APP_SECRET).enableDebug(true);
 
     public static void main(String[] args) {
+        System.out.println("feature2");
         try {
             // 获取广告活动对象
             Campaign campaign = new Campaign(CAMPAIGN_ID, context);

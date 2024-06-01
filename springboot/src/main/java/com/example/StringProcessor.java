@@ -7,6 +7,7 @@ package com.example;
  */
 public class StringProcessor {
     public static String process(String input) {
+        System.out.println("feature2");
         // 找到最后一个 "-" 的位置
         int lastDashIndex = input.lastIndexOf("-");
 
