@@ -16,6 +16,7 @@ public class FaceBookAds {
 
     public static void main(String[] args) {
         System.out.println("feature2");
+        System.out.println("feature1");
         try {
             // 获取广告活动对象
             Campaign campaign = new Campaign(CAMPAIGN_ID, context);
