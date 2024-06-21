@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class TransactionApplication {
 
     public static void main(String[] args) {
+        System.out.println(3333);
         System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/shihy/Downloads/demo1/target/classes/com/example/demo");
         SpringApplication.run(TransactionApplication.class, args);
     }
