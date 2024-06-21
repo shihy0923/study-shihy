@@ -16,7 +16,7 @@ public class FaceBookAds {
 
     public static void main(String[] args) {
         try {
-            // 获取广告活动对象
+            // 获取广告活动对象dddd
             Campaign campaign = new Campaign(CAMPAIGN_ID, context);
 
             // 获取广告活动下的所有广告组
