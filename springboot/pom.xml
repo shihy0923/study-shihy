@@ -113,6 +113,24 @@
             <version>12.0.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version> <!-- 使用最新的版本，检查 Maven 中心以获取最新版本 -->
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83</version> <!-- 使用最新的版本，检查 Maven 中心以获取最新版本 -->
+        </dependency>
+
     </dependencies>
 
 </project>
